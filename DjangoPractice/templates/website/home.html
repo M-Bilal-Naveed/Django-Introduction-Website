@@ -1,0 +1,128 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}Home | Django Practice{% endblock %}
+
+{% block content %}
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="eyebrow">YOUR CODING JOURNEY STARTS HERE</p>
+
+        <h1>
+            Welcome to the
+            <span>Django Practice Website</span>
+        </h1>
+
+        <p class="hero-description">
+            Learn, experiment, and build your web development
+            skills with Django, Python, HTML, CSS, and JavaScript.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#practice" class="btn btn-primary">
+                Start Practicing →
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                Learn More
+            </a>
+        </div>
+
+        <div class="hero-note">
+            <span class="status-dot"></span>
+            Keep learning. Keep building.
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="code-header">
+            <div class="window-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p>views.py</p>
+        </div>
+
+        <pre><code><span class="code-purple">from</span> django.http <span class="code-purple">import</span> HttpResponse
+
+<span class="code-purple">def</span> <span class="code-yellow">home</span>(request):
+    <span class="code-purple">return</span> HttpResponse(
+        <span class="code-green">"Hello, Django!"</span>
+    )</code></pre>
+
+        <div class="code-footer">
+            <span>✓ Python</span>
+            <span>✓ Django</span>
+            <span>✓ Web Development</span>
+        </div>
+    </div>
+</section>
+
+<section class="practice-section" id="practice">
+    <div class="section-heading">
+        <p class="eyebrow">EXPLORE YOUR SKILLS</p>
+        <h2>What do you want to practice?</h2>
+        <p>
+            Choose a topic and take your next step in web development.
+        </p>
+    </div>
+
+    <div class="practice-grid">
+        <article class="practice-card">
+            <div class="card-icon purple">Py</div>
+            <h3>Python</h3>
+            <p>Learn programming fundamentals, functions, and logic.</p>
+            <a href="{% url 'code' %}">Explore Python →</a>
+        </article>
+
+        <article class="practice-card">
+            <div class="card-icon green">Dj</div>
+            <h3>Django</h3>
+            <p>Build web applications, views, URLs, and templates.</p>
+            <a href="{% url 'code' %}">Explore Django →</a>
+        </article>
+
+        <article class="practice-card">
+            <div class="card-icon orange">HT</div>
+            <h3>HTML & CSS</h3>
+            <p>Create beautiful pages with modern responsive layouts.</p>
+            <a href="{% url 'code' %}">Explore Frontend →</a>
+        </article>
+
+        <article class="practice-card">
+            <div class="card-icon blue">JS</div>
+            <h3>JavaScript</h3>
+            <p>Add interactivity and dynamic behavior to your pages.</p>
+            <a href="{% url 'code' %}">Explore JavaScript →</a>
+        </article>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <div>
+        <p class="eyebrow">ABOUT THIS PROJECT</p>
+        <h2>A place to learn by doing.</h2>
+    </div>
+
+    <p>
+        This practice website is a starting point for your Django
+        projects. Customize the design, connect Django views,
+        create models, and turn your ideas into real applications.
+    </p>
+</section>
+
+<section class="contact-section" id="contact">
+    <h2>Ready to build something?</h2>
+    <p>Your next project starts with one small step.</p>
+
+    <button class="btn btn-primary" id="welcomeBtn">
+        Say Hello 👋
+    </button>
+
+    <p id="welcomeMessage" class="welcome-message"
+       aria-live="polite"></p>
+</section>
+
+{% endblock %}

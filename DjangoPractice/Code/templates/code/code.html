@@ -1,0 +1,185 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}Code Examples | Django Practice{% endblock %}
+
+{% block content %}
+
+<section class="hero" id="code">
+    <div class="hero-content">
+        <p class="eyebrow">LEARN BY EXAMPLE</p>
+
+        <h1>
+            Explore <span>Code Examples</span>
+        </h1>
+
+        <p class="hero-description">
+            Practice Python and Django with simple examples.
+            Understand how views, URLs, and templates work together
+            to build dynamic websites.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#django-code" class="btn btn-primary">
+                View Django Code →
+            </a>
+
+            <a href="{% url 'home' %}" class="btn btn-secondary">
+                Back to Home
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="code-header">
+            <div class="window-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p>views.py</p>
+        </div>
+
+        <pre><code><span class="code-purple">from</span> django.shortcuts <span class="code-purple">import</span> render
+
+<span class="code-purple">def</span> <span class="code-yellow">home</span>(request):
+    <span class="code-purple">return</span> render(
+        request,
+        <span class="code-green">"home.html"</span>
+    )</code></pre>
+
+        <div class="code-footer">
+            <span>✓ Views</span>
+            <span>✓ Templates</span>
+            <span>✓ Django</span>
+        </div>
+    </div>
+</section>
+
+<section class="practice-section" id="django-code">
+    <div class="section-heading">
+        <p class="eyebrow">DJANGO FUNDAMENTALS</p>
+        <h2>Basic Django Examples</h2>
+        <p>Learn the main components of a Django application.</p>
+    </div>
+
+    <div class="practice-grid">
+        <article class="practice-card">
+            <div class="card-icon purple">01</div>
+            <h3>Django Views</h3>
+            <p>A view receives a request and returns an HTTP response.</p>
+            <a href="#views-example">View Example ↓</a>
+        </article>
+
+        <article class="practice-card">
+            <div class="card-icon green">02</div>
+            <h3>URL Routing</h3>
+            <p>Connect URL patterns to the correct Django views.</p>
+            <a href="#urls-example">View Example ↓</a>
+        </article>
+
+        <article class="practice-card">
+            <div class="card-icon orange">03</div>
+            <h3>Templates</h3>
+            <p>Use Django template tags to display dynamic content.</p>
+            <a href="#template-example">View Example ↓</a>
+        </article>
+
+        <article class="practice-card">
+            <div class="card-icon blue">04</div>
+            <h3>Inheritance</h3>
+            <p>Reuse layouts with extends and block template tags.</p>
+            <a href="#inheritance-example">View Example ↓</a>
+        </article>
+    </div>
+</section>
+
+<section class="practice-section" id="views-example">
+    <div class="section-heading">
+        <p class="eyebrow">EXAMPLE 01</p>
+        <h2>Creating a Django View</h2>
+    </div>
+
+    <div class="hero-card">
+        <div class="code-header">
+            <p>views.py</p>
+        </div>
+
+        <pre><code><span class="code-purple">from</span> django.shortcuts <span class="code-purple">import</span> render
+
+<span class="code-purple">def</span> <span class="code-yellow">home</span>(request):
+    <span class="code-purple">return</span> render(request, <span class="code-green">"home.html"</span>)
+
+<span class="code-purple">def</span> <span class="code-yellow">code_page</span>(request):
+    <span class="code-purple">return</span> render(request, <span class="code-green">"code.html"</span>)</code></pre>
+    </div>
+</section>
+
+<section class="practice-section" id="urls-example">
+    <div class="section-heading">
+        <p class="eyebrow">EXAMPLE 02</p>
+        <h2>Configuring URLs</h2>
+    </div>
+
+    <div class="hero-card">
+        <div class="code-header">
+            <p>urls.py</p>
+        </div>
+
+        <pre><code><span class="code-purple">from</span> django.urls <span class="code-purple">import</span> path
+<span class="code-purple">from</span> . <span class="code-purple">import</span> views
+
+urlpatterns = [
+    path(<span class="code-green">""</span>, views.home, name=<span class="code-green">"home"</span>),
+    path(<span class="code-green">"code/"</span>, views.code_page, name=<span class="code-green">"code"</span>),
+]</code></pre>
+    </div>
+</section>
+
+<section class="practice-section" id="template-example">
+    <div class="section-heading">
+        <p class="eyebrow">EXAMPLE 03</p>
+        <h2>Using Django Template Variables</h2>
+    </div>
+
+    <div class="hero-card">
+        <div class="code-header">
+            <p>example.html</p>
+        </div>
+
+        <pre><code>{% verbatim %}
+&lt;h1&gt;Welcome, {{ username }}!&lt;/h1&gt;
+
+{% if username %}
+    &lt;p&gt;Welcome back to Django Practice.&lt;/p&gt;
+{% endif %}
+{% endverbatim %}</code></pre>
+    </div>
+</section>
+
+<section class="practice-section" id="inheritance-example">
+    <div class="section-heading">
+        <p class="eyebrow">EXAMPLE 04</p>
+        <h2>Template Inheritance</h2>
+    </div>
+
+    <div class="hero-card">
+        <div class="code-header">
+            <p>home.html</p>
+        </div>
+
+        <pre><code>{% verbatim %}
+{% extends "layout.html" %}
+
+{% block title %}
+    Home | Django Practice
+{% endblock %}
+
+{% block content %}
+    &lt;h1&gt;Welcome to Django!&lt;/h1&gt;
+{% endblock %}
+{% endverbatim %}</code></pre>
+    </div>
+</section>
+
+{% endblock %}
